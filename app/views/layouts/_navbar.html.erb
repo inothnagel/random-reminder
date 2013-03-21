@@ -1,0 +1,22 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="brand" href="/">My Heroku App</a>
+
+    <ul class="nav pull-right">
+      <li class="divider-vertical"></li>
+
+      <% if user_signed_in? %>
+        <li><a href="/users/edit/"><%= current_user.email %></a></li>
+        <li class="divider-vertical"></li>
+
+        <% if current_user.try(:admin) %>
+          <li><%= link_to('Admin', rails_admin_path) %></li>
+        <% end %>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% else %>
+        <li><%= link_to('Login', new_user_session_path)  %> </li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
