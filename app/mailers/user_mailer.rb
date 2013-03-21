@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "Random Reminder App"
+  default from: "random-reminder-app"
 
   def daily_email(user)
     @user = user
