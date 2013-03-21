@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def lists_in_random_order
+    self.lists.shuffle
+  end
+
   def send_registration_notification_to_admins
     AdminMailer.new_registration_email(self).deliver
   end

@@ -1,6 +1,6 @@
 <h1>One random item from each of your lists:</h1>
 
-<% @user.lists.each do |list| %>
+<% @user.lists_in_random_order.each do |list| %>
   <p style="font-size: 16px;">
     <span style="font-weight: bold;"><%= list.name %></span>:
     <br />
