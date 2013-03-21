@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = current_user.items
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
 
     @item = Item.new(params[:item])
     @item.list = @list
+    @item.user = current_user
     @item.save
 
     redirect_to @list

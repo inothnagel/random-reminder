@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = current_user.lists
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @new_item = Item.new
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @list }
@@ -42,7 +42,8 @@ class ListsController < ApplicationController
   # POST /lists.json
   def create
     @list = List.new(params[:list])
-
+    @list.user = current_user
+    
     respond_to do |format|
       if @list.save
         format.html { redirect_to lists_path, notice: 'List was successfully created.' }
