@@ -1,9 +1,7 @@
 <h1>One random item from each of your lists:</h1>
 
 <% @user.lists_in_random_order.each do |list| %>
-  <% random_item = list.random_item %>
   <h2><%= list.name %></h2>
-  <p style="font-size: 16px;"><%= random_item.name %></p>
-  <% if random_item.note %><p><%= random_item.note %></p><% end %>
+  <p style="font-size: 16px;"><%= list.random_item.name_and_text_string %></p>
   <br />
 <% end %>
