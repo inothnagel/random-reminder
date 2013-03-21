@@ -4,6 +4,11 @@
   <p style="font-size: 16px;">
     <span style="font-weight: bold;"><%= list.name %></span>:
     <br />
-    <%= list.random_item.name %>
+    <% random_item = list.random_item %>
+    <%= random_item.name %>
+    <% if random.note %>
+      <br />
+      <%= random_item.note %>
+    <% end %>
   </p>
 <% end %>
