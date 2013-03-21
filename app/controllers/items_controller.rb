@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
 
     @item = Item.new(params[:item])
     @item.list = @list
-    @item.user = current_user
     @item.save
 
     redirect_to @list
