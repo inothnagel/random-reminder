@@ -1,11 +1,17 @@
 HerokuApp::Application.routes.draw do
+  resources :items
+
+
+  resources :lists
+
+
   get "home/index"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
 
-  root :to => 'home#index'
+  root :to => 'lists#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
