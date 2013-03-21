@@ -2,6 +2,6 @@ One random item from each of your lists:
 
 <ul>
   <% @user.lists.each do |list| %>
-    <li><%= list.name %>: <%= list.random_item %></li>
+    <li><%= list.name %>: <%= list.random_item.name %></li>
   <% end %>
 </ul>
