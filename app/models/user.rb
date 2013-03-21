@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :lists
+
   # after_create :send_registration_notification_to_admins
   after_create :make_admin_if_first_user
 

@@ -1,3 +1,7 @@
-UserMailer#daily_email
+One random item from each of your lists:
 
-<%= @greeting %>, find me in app/views/app/views/user_mailer/daily_email.text.erb
+<ul>
+  <% @user.lists.each do |list| %>
+    <li><%= list.name %>: <%= list.random_item %></li>
+  <% end %>
+</ul>
