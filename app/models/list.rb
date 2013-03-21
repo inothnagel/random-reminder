@@ -4,6 +4,6 @@ class List < ActiveRecord::Base
   attr_accessible :name
 
   def random_item
-    self.items.first(:offset => rand(Thing.count))
+    self.items.first(:offset => rand(self.items.count))
   end
 end
