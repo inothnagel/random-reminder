@@ -3,7 +3,8 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = current_user.lists
-
+    @new_list = List.new
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @lists }
