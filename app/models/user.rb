@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
     puts "USER COUNT = #{User.count == 1}"
     User.count == 1
   end
+
+  def lists_alphabetic
+    lists.find(:all, :order=>'name')
+  end
 end
