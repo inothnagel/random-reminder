@@ -12,7 +12,11 @@
     <div class="row">
       <%= render 'layouts/header' %>
       <div class="span2" id="sidebar">
-        <%= yield :sidebar %>
+        <ul id='sidebarLists'>
+          <h3>Lists</h3>
+          <% @lists.each do |list| %>
+            <li><%= link_to list.name, list %></li>
+          <% end %>
       </div>
       <div class="span9">
         <%= yield %>
