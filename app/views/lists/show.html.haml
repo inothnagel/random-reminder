@@ -1,5 +1,8 @@
 %h2= @list.name
 
+%b Random Item:
+= random_item_link(@list)
+
 %h3 Items
 
 = form_for @new_item do |f|

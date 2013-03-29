@@ -2,6 +2,6 @@
 
 <% @user.lists_in_random_order.each do |list| %>
   <p style="font-size: 16px;">
-    <b><%= list.name %>:</b> <%= list.random_item.try(:name) || "List is empty." %>
+    <b><%= list.name %>:</b> <%= random_item_link(list) %>
   </p>
 <% end %>
