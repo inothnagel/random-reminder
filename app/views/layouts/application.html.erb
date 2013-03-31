@@ -13,9 +13,11 @@
       <%= render 'layouts/header' %>
       <div class="span3" id="sidebar">
         <ul id='sidebarLists'>
-          <h3>Lists</h3>
-          <% current_user.lists_alphabetic.each do |list| %>
-            <li><%= link_to list.name, list %></li>
+          <% if current_user %>
+            <h3>Lists</h3>
+            <% current_user.lists_alphabetic.each do |list| %>
+              <li><%= link_to list.name, list %></li>
+            <% end %>
           <% end %>
       </div>
       <div class="span8">
