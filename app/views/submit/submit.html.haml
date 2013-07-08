@@ -12,6 +12,6 @@
     = f.label :url
     = f.text_field :url, :value=>@url
   .field
-    = collection_select(:list, :list_id, List.all, :id, :name, {:prompt => true})
+    = collection_select(:list, :list_id, List.alphabetically, :id, :name, {:prompt => true})
   .actions
     = f.submit 'Save'

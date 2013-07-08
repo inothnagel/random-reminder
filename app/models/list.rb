@@ -3,6 +3,10 @@ class List < ActiveRecord::Base
   has_many :items
   attr_accessible :name
 
+  def self.alphabetically
+    order(:name)
+  end
+
   def random_item
     self.items.first(:offset => rand(self.items.count))
   end
