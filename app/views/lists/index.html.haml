@@ -1,5 +1,8 @@
-%h2 My Lists
+%h3 Random:
+= link_to "#{@random_list.name}: ", @random_list
+= link_to @random_list_random_item.try(:name), @random_list_random_item.try(:url), :target => "_blank"
 
+%h3 Add New List:
 = form_for @new_list do |f|
   = f.text_field :name, :placeholder=>"Add new list...", :id=>"new-list-input"
 

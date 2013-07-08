@@ -6,4 +6,8 @@ class List < ActiveRecord::Base
   def random_item
     self.items.first(:offset => rand(self.items.count))
   end
+
+  def self.random_list
+    List.first(:offset => rand(List.all.count))
+  end
 end

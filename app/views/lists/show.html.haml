@@ -1,18 +1,23 @@
 %h2= @list.name
 
-%b Random Item:
+%h3 Random:
 = random_item_link(@list)
 
-%h3 Items
+%h3 New Item
 
 = form_for @new_item do |f|
-  = f.text_field :name, :placeholder=>"Add new item...", :id=>"new-item-input"
+  = f.text_field :name, :placeholder=>"New Item Name", :id=>"new-item-input"
+  = f.text_field :url, :placeholder=>"New Item URL", :id=>"new-item-input"
+  = f.submit :class => 'btn'
   = f.hidden_field :list_id, :value=>@list.id
+
+%h3 Items
 
 %table{:class=>"table"}
   - @list.items.each do |item|
     %tr
-      %td= link_to item.name, item
+      %td= link_to item.name, item.url || "#", :target => "_blank"
+      %td= link_to 'edit', item
 
 %br
 %br

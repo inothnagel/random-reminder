@@ -3,6 +3,9 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = current_user.lists_alphabetic
+    @random_list = List.random_list
+    @random_list_random_item = @random_list.random_item
+    
     @new_list = List.new
     
     respond_to do |format|

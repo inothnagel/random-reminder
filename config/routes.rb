@@ -6,6 +6,8 @@ HerokuApp::Application.routes.draw do
 
 
   get "home/index"
+  post "/submit/create", :controller => 'submit', :action => :create
+  get "/submit/:url", :controller => 'submit', :action => :submit
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
