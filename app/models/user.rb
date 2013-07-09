@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  def favourite_lists
+    lists.where(:favourite => true)
+  end
+
   def lists_in_random_order
     self.lists.shuffle
   end

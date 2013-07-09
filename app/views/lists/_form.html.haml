@@ -8,5 +8,8 @@
   .field
     = f.label :name
     = f.text_field :name
+  .field
+    = f.check_box :favourite
+    = f.label :favourite
   .actions
     = f.submit 'Save', :class => 'btn'

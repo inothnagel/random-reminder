@@ -1,7 +1,0 @@
-<h1>Random Reminders</h1>
-
-<% @user.lists_in_random_order.each do |list| %>
-  <p style="font-size: 16px;">
-    <b><%= list.name %>:</b> <%= list.random_item.try(:name) || "" %>
-  </p>
-<% end %>

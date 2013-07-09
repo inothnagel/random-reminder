@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708104432) do
+ActiveRecord::Schema.define(:version => 20130709091746) do
 
   create_table "items", :force => true do |t|
     t.integer  "list_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130708104432) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "favourite"
   end
 
   add_index "lists", ["user_id"], :name => "index_lists_on_user_id"

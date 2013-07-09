@@ -1,0 +1,15 @@
+%h1 Random Reminders
+
+%h3 Favourites:
+- @user.favourite_lists.each do |list|
+  %p
+    = link_to "#{list.name}: ", list
+    - random_item = list.random_item
+    = link_to random_item.try(:name), random_item.try(:url)
+
+%h3 Randoms:
+- @user.lists_in_random_order.each do |list|
+  %p
+    = link_to "#{list.name}: ", list
+    - random_item = list.random_item
+    = random_item.try(:name)
