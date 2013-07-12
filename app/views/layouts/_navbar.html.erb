@@ -5,6 +5,12 @@
     <ul class="nav pull-right">
       <li class="divider-vertical"></li>
 
+      <li>
+        <a href="javascript:(function(){  var url ='http://inothnagel-random-reminder.herokuapp.com/submit'+'?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title);  var win=window.open(url, '_blank');  win.focus();})()" title="SubmitRandom">Submit Bookmarklet</a>
+      </li>
+
+      <li class="divider-vertical"></li>
+      
       <% if user_signed_in? %>
         <li><a href="/users/edit/"><%= current_user.email %></a></li>
         <li class="divider-vertical"></li>
