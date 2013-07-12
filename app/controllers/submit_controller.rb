@@ -14,6 +14,6 @@ class SubmitController < ApplicationController
     @item.list = @list
     @item.save
 
-    redirect_to @item.url
+    redirect_to @list
   end
 end
