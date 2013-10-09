@@ -4,7 +4,10 @@ module ListsHelper
     return "" if item.nil?
 
     text = item.name
-    link = "http://inothnagel-random-reminder.herokuapp.com/items/#{item.id}"
-    link_to(text, link)
+    link = item.try(:url)
+    if link.blank?
+    	link = "http://inothnagel-random-reminder.herokuapp.com/items/#{item.id}"
+    end
+    link_to text, link, :target => "_blank"
   end
 end
