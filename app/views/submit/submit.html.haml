@@ -15,6 +15,12 @@
     = f.text_field :url, :value=>@url
   .field
     = f.label :list
-    = collection_select(:list, :list_id, List.alphabetically, :id, :name, {:prompt => true})
+    = f.text_field :list
   .actions
     = f.submit 'Save', :class=>'btn btn-primary'
+
+:javascript
+  $(function() {
+    var availableTags = #{@lists}
+    $( "#item_list" ).autocomplete({source: availableTags});
+  });
