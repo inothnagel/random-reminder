@@ -9,6 +9,8 @@ HerokuApp::Application.routes.draw do
   post "/submit/create", :controller => 'submit', :action => :create
   get "/submit", :controller => 'submit', :action => :submit
 
+  get "/find-list-by-name", :controller => 'lists', :action => :find_list_by_name
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users

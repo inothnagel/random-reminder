@@ -32,3 +32,13 @@ body {
 #sidebarLists li {
   padding-bottom: 10px;
 }
+
+.list-selector {
+	width: 200px;
+	display: block;
+	float: left;
+}
+
+.list-selector #name {
+	margin-top: 5px;
+}

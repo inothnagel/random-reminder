@@ -1,0 +1,13 @@
+<% if @list_names %>
+  <div class="list-selector">
+    <%= form_tag("/find-list-by-name", method: "get") do %>
+      <%= text_field_tag(:name) %>
+    <% end %>
+    <script>
+      $(function(){
+        var availableTags = <%= raw @list_names %>;
+        $( ".list-selector #name" ).autocomplete({source: availableTags});
+      });
+    </script>
+  </div>
+<% end %>

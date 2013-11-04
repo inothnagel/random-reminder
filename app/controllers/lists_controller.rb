@@ -3,6 +3,8 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = current_user.lists_alphabetic
+    @list_names = current_user.lists.map { |l| l.name }
+
     @random_list = List.random_list
     @random_list_random_item = @random_list.random_item
     
@@ -18,6 +20,8 @@ class ListsController < ApplicationController
   # GET /lists/1.json
   def show
     @list = List.find(params[:id])
+    @list_names = current_user.lists.map { |l| l.name }
+    
     @new_item = Item.new
 
     respond_to do |format|
@@ -84,6 +88,15 @@ class ListsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to lists_url }
       format.json { head :no_content }
+    end
+  end
+
+  def find_list_by_name
+    @list = current_user.lists.find_by_name(params[:name])
+    if @list
+      redirect_to @list
+    else
+      redirect_to "/"
     end
   end
 end
