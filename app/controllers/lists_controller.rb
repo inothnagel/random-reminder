@@ -20,6 +20,11 @@ class ListsController < ApplicationController
   # GET /lists/1.json
   def show
     @list = List.find(params[:id])
+
+    unless @list.user == current_user
+      redirect_to "/" and return
+    end
+    
     @list_names = current_user.lists.map { |l| l.name }
     
     @new_item = Item.new
