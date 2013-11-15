@@ -5,8 +5,8 @@ class ListsController < ApplicationController
     @lists = current_user.lists_alphabetic
     @list_names = current_user.lists.map { |l| l.name }
 
-    @random_list = List.random_list
-    @random_list_random_item = @random_list.random_item
+    @random_list = current_user.random_list
+    @random_list_random_item = @random_list.try(:random_item)
     
     @new_list = List.new
     

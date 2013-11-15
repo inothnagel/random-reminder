@@ -44,4 +44,8 @@ class User < ActiveRecord::Base
   def lists_alphabetic
     lists.find(:all, :order=>'name')
   end
+
+  def random_list
+    self.lists.first(:offset => rand(self.lists.count))
+  end
 end
